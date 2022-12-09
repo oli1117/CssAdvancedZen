@@ -1,223 +1,618 @@
-/* css Zen Garden default style v1.02 */
-/* css released under Creative Commons License - http://creativecommons.org/licenses/by-nc-sa/1.0/  */
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,700,900");
+@import url(normalize.css);
 
-/* This file based on 'Tranquille' by Dave Shea */
-/* You may use this file as a foundation for any new work, but you may find it easier to start from scratch. */
-/* Not all elements are defined in this file, so you'll most likely want to refer to the xhtml as well. */
+@keyframes animStar {
+  from {
+    transform: translateY(0);
+  }
 
-/* Your images should be linked as if the CSS file sits in the same folder as the images. ie. no paths. */
-
-
-/* basic elements */
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  to {
+    transform: translateY(-200vh);
+  }
+}
 
 html {
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  html {
     margin: 0;
     padding: 0;
-    background-color: #1e1e1e;
-    font-size: 20px;
-  }
-  
-  body {
-    font-family: "Poppins", sans-serif;
-    line-height: 1.4;
-    color: #FFF;
-  }
-  
-  h1 {
-    font-family: "Poppins";
-    font-size: 2em;
-    margin: 0;
-    padding: 0.5em;
-  }
-  
-  h2 {
-    font-size: 1.5em;
-    margin: 5px;
-  }
-  
-  p {
-    text-align: justify;
-  }
-  
-  h3 {
-    font-family: "Poppins";
-    letter-spacing: 1px;
-    color: #FFF;
-    font-size: 1em;
-  }
-  
-  a:link {
-    font-weight: bold;
-    text-decoration: none;
-    color: #a12c2f;
-  }
-  
-  a:visited {
-    font-weight: bold;
-    text-decoration: none;
-    color: #f5a425;
-  }
-  
-  a:hover,
-  a:focus,
-  a:active {
-    text-decoration: underline;
-    color: #f5a425;
-  }
-  
-  abbr {
-    border-bottom: none;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .preamble:hover, .preamble:active, .preamble:focus, [role=article]:hover, [role=article]:active, [role=article]:focus {
-    background-color: #1e1e1e;
-    color: #FFF;
-  }
-  
-  footer {
-    background-color: #1e1e1e;
-    padding: 0.1em;
-  }
-  
-  html, body {
-    overflow-x: hidden;
-  }
-  
-  body {
-    margin: 0;
+    cursor: url("SVG/icon.png"), auto;
   }
 
-/*Grid Layout*/
-.page-wrapper {
-    margin: 0 0.5em;
-    max-width: 1400px;
-    margin-bottom: 20px;
+  html::after {
+    content: " ";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1000vh;
+    width: 100%;
+    z-index: 1;
+    animation: animStar 150s linear infinite;
+    -webkit-transform: translateZ(-999px) scale(2);
   }
-  
-  .intro {
-    display: grid;
-    grid-gap: 1em;
-    grid-template-areas: "header" "summary" "preamble";
+
+  html::before {
+    content: " ";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1000vh;
+    width: 100%;
+    z-index: 1;
+    animation: animStar 300s linear infinite;
+    -webkit-transform: translateZ(-999px) scale(2);
   }
-  
-  header {
-    grid-area: header;
-    min-height: 180px;
-    color: #FFF;
-    background-color: #1e1e1e;
-    text-align: center;
-    margin: 0 -0.5em;
-  }
-  
-  .summary {
-    grid-area: summary;
-    border: #f5a425 solid 1px;
-    padding: 0 1em;
-  }
-  
-  .preamble {
-    grid-area: preamble;
-    border: #f5a425 solid 1px;
-    padding: 0 1em;
-  }
-  
-  .main {
-    margin-top: 1em;
-    display: grid;
-    grid-gap: 1em;
-    grid-template-areas: "explanation" "participation" "benefits" "requirements";
-  }
-  
-  .explanation {
-    grid-area: explanation;
-    border: #f5a425 solid 1px;
-    padding: 0 1em;
-  }
-  
-  .participation {
-    grid-area: participation;
-    border: #f5a425 solid 1px;
-    padding: 0 1em;
-  }
-  
-  .benefits {
-    grid-area: benefits;
-    border: #f5a425 solid 1px;
-    padding: 0 1em;
-  }
-  
-  .requirements {
-    grid-area: requirements;
-    border: #f5a425 solid 1px;
-    padding: 0 1em;
-  }
-  
-  .wrapper {
-    display: grid;
-    grid-gap: 1em;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: "design-selection design-selection ." ". design-archives design-archives" "zen-resources zen-resources .";
+}
+
+body {
+  display: flex;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-size: 14px;
+  line-height: 1.5em;
+  color: #ffffff;
+  /* background: #000; */
+  background-image: url("back2small.png");
+  margin: 0;
+  padding: 5px 10px 5px 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    max-height: 3200px;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
     font-size: 16px;
-  }
-  
-  .wrapper h3 {
-    margin: 0;
-  }
-  
-  footer {
+    line-height: 1.5em;
     display: grid;
-    grid-gap: 1em;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    justify-items: center;
-    margin-bottom: 1em;
-    border: #f5a425 solid 1px;
+    grid-gap: 0 25px;
+    grid-template-columns: 1fr calc(60%) calc(20%) 1fr;
+    grid-template-rows: 350px auto auto auto auto auto;
+    background-image: url("stars.jpg");
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: repeat-x;
+    background-size: auto;
   }
-  
-  .design-selection {
-    grid-area: 1em;
-    justify-self: center;
-    width: 300px;
-    height: 300px;
-    background: #1e1e1e;
+
+  body::before {
+    visibility: visible;
+    grid-area: 1 / 3 / 1 / 3;
+    width: 100px;
+    padding: 0;
+    margin-left: -145px;
+    animation: rot 6s infinite linear;
+  }
+
+  body::after {
+    visibility: visible;
+    grid-area: 1 / 3 / 1 / 3;
+    width: 100px;
+    margin-left: -150px;
+    margin-top: 120px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+}
+
+p {
+  margin-top: 0;
+  text-align: left;
+  line-height: 2em;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 3.78em;
+}
+
+h2 {
+  font-size: 2.14em;
+  margin-top: 10px;
+  line-height: 1.2em;
+}
+
+h3 {
+  font-weight: 900;
+  font-size: 1.21em;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #ffb56a 0%, #ff9652 45%, #ea7232 85%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  color: #330867;
+  /* Safari/WebKit uses a non-standard name */
+  /* Firefox/Gecko */
+  width: -moz-max-content;
+  /* Chrome */
+  width: -webkit-max-content;
+  align-self: flex-start;
+}
+
+@media only screen and (min-width: 768px) {
+  h3 {
+    text-align: right;
+    align-self: flex-end;
+  }
+}
+
+a {
+  position: relative;
+  z-index: 99;
+}
+
+a:link {
+  font-weight: bold;
+  text-decoration: none;
+  color: #30CFD0;
+}
+
+a:visited {
+  font-weight: bold;
+  text-decoration: none;
+  color: #30CFD0;
+}
+
+a:hover,
+a:focus,
+a:active {
+  text-decoration: underline;
+  color: #30CFD0;
+}
+
+a:hover {
+  position: relative;
+  z-index: 99;
+  cursor: pointer;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: dotted underline;
+}
+
+/* specific divs */
+.page-wrapper {
+  margin: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .page-wrapper {
     display: grid;
-    text-align: center;
-    align-self: center;
+    grid-gap: 25px;
+    grid-area: 2 / 1 / 6 / 5;
+    grid-template-columns: 1fr calc(60%) calc(20%) 1fr;
+    grid-template-rows: auto auto auto auto auto auto;
+    /* background: rgb(138, 27, 27); */
+    background-image: url("back22.jpg");
+  }
+
+  .page-wrapper::after {
+    grid-area: 3 / 1 / 3 / 4;
+    display: flex;
+    background-image: url("crab_nebula-crop.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    width: 99vw;
+    min-height: 350px;
+    content: " ";
+  }
+
+  .page-wrapper::before {
+    content: " ";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1000vh;
+    width: 100%;
+    z-index: 1;
+    animation: animStar 450s linear infinite;
+    -webkit-transform: translateZ(-999px) scale(2);
+  }
+}
+
+.summary,
+.preamble,
+.explanation,
+.participation,
+.benefits,
+.requirements {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.summary p,
+.preamble p,
+.explanation p,
+.participation p,
+.benefits p,
+.requirements p {
+  display: inline-block;
+  z-index: 2;
+}
+
+.summary h3,
+.preamble h3,
+.explanation h3,
+.participation h3,
+.benefits h3,
+.requirements h3 {
+  align-items: flex-end;
+
+}
+
+.summary a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.summary a:hover {
+  position: relative;
+  z-index: 99;
+  cursor: pointer;
+  border-bottom: #be50a9 solid;
+  visibility: visible;
+  -webkit-transition: border;
+  -moz-transition: border;
+  -o-transition: border;
+  -ms-transition: border;
+  transition: border;
+}
+
+@media only screen and (min-width: 768px) {
+  .summary {
+    grid-area: 3 / 2 / 3 / 2;
+  }
+
+  .summary p {
+    font: italic 1.2em/2.2 "Poppins", sans-serif;
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .intro {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-area: 2 / 2 / 3 / 2;
+    display: grid;
+    padding-bottom: 60px;
+  }
+
+  .intro::after {
+    grid-area: 5 / 3 / 5 / 3;
+    visibility: visible;
+    content: url("SVG/Asset265.png");
+    display: block;
+    width: 150px;
+    margin-right: -250px;
+    padding: 50px 50px 0 50px;
+  }
+
+  .intro .preamble {
+    grid-area: 4 / 2 / 4 / 2;
+  }
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+header h1 {
+  margin-top: 10px;
+  margin-bottom: 20;
+  line-height: 1em;
+  background: linear-gradient(to right, #30CFD0 0%, #276dcc 45%, #330867 85%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  font-size: 3.78em;
+  text-align: center;
+}
+
+header h2 {
+  font-size: 2.14em;
+  margin-top: 10px;
+  line-height: 1.2em;
+  font-weight: 300;
+}
+
+@media only screen and (min-width: 768px) {
+  header {
+    grid-area: 2 / 2 / 2 / 2;
+    margin-top: -100px;
+  }
+
+  header h3 {
+    font-weight: 900;
+    font-size: 1.5em;
+    /* text-align: left; */
+    text-transform: uppercase;
+    background: linear-gradient(to right, #30CFD0 0%, #276dcc 45%, #330867 85%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+  }
+}
+
+.supporting footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.supporting footer:nth-child(n+1) {
+  visibility: hidden;
+}
+
+.supporting footer .zen-validate-html::after {
+  visibility: visible;
+  content: url("SVG/HTMLs.png");
+  display: block;
+  width: 60px;
+}
+
+.supporting footer .zen-validate-css::after {
+  visibility: visible;
+  content: url("SVG/CSSs.png");
+  display: block;
+  width: 60px;
+}
+
+.supporting footer .zen-license::after {
+  visibility: visible;
+  content: url("SVG/CCs.png");
+  display: block;
+  width: 60px;
+}
+
+.supporting footer .zen-accessibility::after {
+  visibility: visible;
+  content: url("SVG/ALLYs.png");
+  display: block;
+  width: 60px;
+}
+
+.supporting footer .zen-github::after {
+  visibility: visible;
+  content: url("SVG/GHs.png");
+  display: block;
+  width: 60px;
+}
+
+@media only screen and (min-width: 768px) {
+  .supporting {
+    grid-area: 4 / 2 / 6 / 2;
+  }
+
+  .supporting::after {
+    grid-area: 7 / 3 / 7 / 3;
+    visibility: visible;
+    content: url("SVG/Asset265.png");
+    display: block;
+    width: 150px;
+    margin-left: 110%;
+  }
+
+  .supporting .explanation {
+    grid-area: 3 / 2 / 4 / 2;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
-    border: 1px solid #f5a425;
   }
-  
-  .design-archives {
-    grid-area: design-archives;
-    justify-self: center;
-    width: 300px;
-    height: 300px;
-    background: #1e1e1e;
-    display: grid;
-    text-align: center;
-    align-self: center;
+
+  .supporting> :nth-child(2) {
+    grid-area: 4 / 2 / 4 / 2;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
-    border: 1px solid #f5a425;
   }
-  
-  .zen-resources {
-    grid-area: zen-resources;
-    justify-self: center;
-    width: 300px;
-    height: 300px;
-    background: #1e1e1e;
+
+  .supporting .benefits {
+    grid-area: 5 / 2 / 5 / 2;
+  }
+
+  .supporting .requirements {
+    grid-area: 6 / 2 / 6 / 2;
+  }
+}
+
+.sidebar {
+  display: flex;
+  font: 12pt "Poppins", sans-serif;
+  margin-top: 50px;
+}
+
+.sidebar h3 {
+  text-align: left;
+}
+
+.sidebar ul {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar li {
+  line-height: 1.3em;
+  display: block;
+  padding-top: 5px;
+  margin-bottom: 5px;
+  list-style-type: none;
+}
+
+.sidebar li a:link {
+  color: #cecece;
+}
+
+.sidebar li a:visited {
+  color: #cecece;
+}
+
+.sidebar li a:first-of-type {
+  font-weight: 900;
+  color: #ffffff;
+  font-size: 1.21em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  list-style-type: none;
+}
+
+.sidebar li a:first-of-type::after {
+  content: "\a";
+  white-space: pre;
+}
+
+.sidebar .designer-name {
+  font-weight: 700;
+  color: #cecece;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+
+.sidebar .designer-name::after {
+  content: "\a";
+  white-space: pre;
+}
+
+.sidebar .zen-resources li {
+  display: flex;
+}
+
+.sidebar .zen-resources li a:first-of-type {
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 1.1em;
+  text-transform: none;
+  list-style-type: none;
+  text-indent: 1em;
+}
+
+.sidebar .zen-resources .view-css::before {
+  visibility: visible;
+  content: url("SVG/Asset162.png");
+  width: 20px;
+  display: block;
+}
+
+.sidebar .zen-resources .css-resources::before {
+  visibility: visible;
+  content: url("SVG/Asset13.png");
+  width: 20px;
+  display: block;
+}
+
+.sidebar .zen-resources .zen-faq::before {
+  visibility: visible;
+  content: url("SVG/Asset09.png");
+  width: 20px;
+  display: block;
+}
+
+.sidebar .zen-resources .zen-submit::before {
+  visibility: visible;
+  content: url("SVG/Asset18.png");
+  width: 20px;
+  display: block;
+}
+
+.sidebar .zen-resources .zen-translations::before {
+  visibility: visible;
+  content: url("SVG/Asset19.png");
+  width: 20px;
+  display: block;
+}
+
+@media only screen and (min-width: 768px) {
+  .sidebar {
     display: grid;
-    text-align: center;
-    align-self: center;
-    flex-direction: column;
-    justify-content: center;
-    border: 1px solid #f5a425;
+    grid-area: 1 / 3 / 6 / 3;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-columns: 1fr;
+    font: 12pt "Poppins", sans-serif;
+    padding-bottom: 30px;
+    margin-top: 10px;
   }
+
+  .sidebar::before {
+    visibility: visible;
+    grid-area: 1 / 3 / 1 / 3;
+    content: url("SVG/Asset241.png");
+    width: 150px;
+    margin-left: calc(-350vw/6);
+    margin-top: -260px;
+  }
+
+  .sidebar>.wrapper {
+    grid-area: 1 / 1 / 5 / 1;
+    display: grid;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar>.wrapper>.design-selection {
+    grid-area: 1 / 1 / 1 / 1;
+    /* background-color: #be50a9; */
+    padding-left: 10px;
+  }
+
+  .sidebar>.wrapper>.design-archives {
+    grid-area: 3 / 1 / 3 / 1;
+  }
+
+  .sidebar>.wrapper>.zen-resources {
+    grid-area: 4 / 1 / 4 / 1;
+  }
+}
+
+nav ul {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+nav li {
+  list-style-type: none;
+  margin-top: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #cecece;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes rot {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
