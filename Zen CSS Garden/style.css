@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,700,900");
-@import url(normalize.css);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @keyframes animStar {
   from {
@@ -35,6 +34,10 @@ html {
     z-index: 1;
     animation: animStar 150s linear infinite;
     -webkit-transform: translateZ(-999px) scale(2);
+    -moz-transform: translateZ(-999px) scale(2); /* Mozilla */
+    -o-transform: translateZ(-999px) scale(2); /* Opera */
+    -ms-transform: translateZ(-999px) scale(2); /* Internet Explorer */
+    transform: translateZ(-999px) scale(2); /* CSS3 */
   }
 
   html::before {
@@ -49,6 +52,10 @@ html {
     z-index: 1;
     animation: animStar 300s linear infinite;
     -webkit-transform: translateZ(-999px) scale(2);
+    -moz-transform: translateZ(-999px) scale(2); /* Mozilla */
+    -o-transform: translateZ(-999px) scale(2); /* Opera */
+    -ms-transform: translateZ(-999px) scale(2); /* Internet Explorer */
+    transform: translateZ(-999px) scale(2); /* CSS3 */
   }
 }
 
@@ -131,6 +138,7 @@ h3 {
   font-size: 1.21em;
   text-transform: uppercase;
   background: linear-gradient(to right, #ffb56a 0%, #ff9652 45%, #ea7232 85%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: 1px;
@@ -229,6 +237,10 @@ abbr[title] {
     z-index: 1;
     animation: animStar 450s linear infinite;
     -webkit-transform: translateZ(-999px) scale(2);
+    -moz-transform: translateZ(-999px) scale(2); /* Mozilla */
+    -o-transform: translateZ(-999px) scale(2); /* Opera */
+    -ms-transform: translateZ(-999px) scale(2); /* Internet Explorer */
+    transform: translateZ(-999px) scale(2); /* CSS3 */
   }
 }
 
@@ -323,9 +335,10 @@ header {
 
 header h1 {
   margin-top: 10px;
-  margin-bottom: 20;
+  margin-bottom: auto;
   line-height: 1em;
   background: linear-gradient(to right, #30CFD0 0%, #276dcc 45%, #330867 85%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 900;
@@ -352,6 +365,7 @@ header h2 {
     /* text-align: left; */
     text-transform: uppercase;
     background: linear-gradient(to right, #30CFD0 0%, #276dcc 45%, #330867 85%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: 1px;
